@@ -1,27 +1,24 @@
 // change-tutorial-link.js
 export const tutorialLink = document.querySelector('#tutorialLink');
-
-export function changeTutorialLink(e) {
+export function changeTutorialLink(source) {
     if (!tutorialLink) return null;
-    console.log(e.target.dataset.timestamp)
-    const path = e?.composedPath?.() || [];
-    const eventTarget = e?.target instanceof Element ? e.target : e?.target?.parentElement;
 
-    const source = path.find((node) => node instanceof Element && node.matches?.('[data-video], [data-timestamp]'))
-        || eventTarget?.closest('[data-video], [data-timestamp]')
-        || e?.currentTarget?.closest?.('[data-video], [data-timestamp]');
+    // If an event was passed, use its target.
+    const el = source?.target || source;
 
-    if (!source) return tutorialLink;
+    if (!(el instanceof Element)) return tutorialLink;
 
-    const vidBase = source.getAttribute('data-video');
-    const ts = source.getAttribute('data-timestamp');
+    const link = el.closest('[data-video]');
+    if (!link) return tutorialLink;
+
+    const vidBase = link.dataset.video;
+    const ts = link.dataset.timestamp;
+
     if (!vidBase) return tutorialLink;
 
-    let vidHref = vidBase;
-    if (ts) {
-        vidHref += (vidBase.includes('?') ? '&' : '?') + `t=${ts}s`;
-    }
+    tutorialLink.href = ts
+        ? `${vidBase}${vidBase.includes('?') ? '&' : '?'}t=${ts}s`
+        : vidBase;
 
-    tutorialLink.setAttribute('href', vidHref);
     return tutorialLink;
 }

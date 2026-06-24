@@ -30,15 +30,19 @@ export function getHrefFromLink(link) {
 /* =========================
    INITIAL LOAD
 ========================= */
-const autoLink = allSideBarLinks.find(el => el.hasAttribute('autofocus'));
+export function intiSideBarLinkAutoFocus(){
+    const autoLink = allSideBarLinks.find(el => el.hasAttribute('autofocus'));
 
-if (autoLink) {
-    lastClickedSideBarLink = autoLink;
-    lastFocusedSideBarLink = autoLink;
-    injectContent(autoLink.href);
-} else {
-    injectContent('home-page.html');
+    if (autoLink) {
+        lastClickedSideBarLink = autoLink;
+        lastFocusedSideBarLink = autoLink;
+        injectContent(autoLink.href);
+        changeTutorialLink(autoLink)
+    } else {
+        injectContent('home-page.html');
+    }
 }
+
 
 /* =========================
    HELPERS
@@ -70,7 +74,7 @@ allSideBarLinks.forEach((el, i) => {
         e.preventDefault();
         lastClickedSideBarLink = el;
         injectContent(el.href);
-        console.log('here',e.target)
+        
         changeTutorialLink(e);
     });
 
@@ -195,9 +199,7 @@ export function sideBarNav({ e, focusZone }) {
 
     /* ---- T KEY ---- */
     if (key === 't') {
-        // const tutorialLink = changeTutorialLink(e);
-        console.log('T pressed on:', e.target);
-        console.log(tutorialLink.dataset.timestamp)
+        
 
         tutorialLink?.focus();
     }
@@ -215,7 +217,6 @@ sideBarBtn.addEventListener('keydown', e => {
     }
     if (e.key.toLowerCase() === 'f') {
         e.preventDefault()
-        console.log(allSideBarLinks[0])
         iSideBarLinks = 0
         allSideBarLinks[0].focus()
         // mainTargetDiv.focus();
