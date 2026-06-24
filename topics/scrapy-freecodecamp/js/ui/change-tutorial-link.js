@@ -3,7 +3,7 @@ export const tutorialLink = document.querySelector('#tutorialLink');
 
 export function changeTutorialLink(e) {
     if (!tutorialLink) return null;
-
+    console.log(e.target.dataset.timestamp)
     const path = e?.composedPath?.() || [];
     const eventTarget = e?.target instanceof Element ? e.target : e?.target?.parentElement;
 

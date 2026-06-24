@@ -1,4 +1,4 @@
-// main-script.js
+// script.js
 // THIS CODE IS ALL over ThE Place, fix, make more like tech-with-tim!
 // ===== Imports =====
 import { popupLetterNav } from "../ui/letter-nav-popup.js";

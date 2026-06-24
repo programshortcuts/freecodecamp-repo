@@ -80,10 +80,11 @@ allSideBarLinks.forEach((el, i) => {
 
         if (key === 'enter') {
             e.preventDefault();
+            changeTutorialLink(e);
+            
             if (lastFocusedSideBarLink == lastClickedSideBarLink){
 
                 const step1 = mainTargetDiv.querySelector('.step-float')
-                console.log(step1)
 
                 step1.focus()
                 return
@@ -91,7 +92,7 @@ allSideBarLinks.forEach((el, i) => {
             }
             lastClickedSideBarLink = el;
             injectContent(el.href);
-            changeTutorialLink(e);
+            
         }
 
         if (key === 'm') {
@@ -194,7 +195,10 @@ export function sideBarNav({ e, focusZone }) {
 
     /* ---- T KEY ---- */
     if (key === 't') {
-        const tutorialLink = changeTutorialLink(e);
+        // const tutorialLink = changeTutorialLink(e);
+        console.log('T pressed on:', e.target);
+        console.log(tutorialLink.dataset.timestamp)
+
         tutorialLink?.focus();
     }
 }
