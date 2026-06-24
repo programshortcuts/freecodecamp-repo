@@ -6,7 +6,10 @@
 .main-container{
     padding-bottom: 7.5%;
 }
+.steps-container{
 
+    /* margin-left: 2%; */
+}
 .step-float {
     margin: 1%;
     padding: 2%;
