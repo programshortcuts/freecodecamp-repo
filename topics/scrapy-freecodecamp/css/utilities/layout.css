@@ -21,9 +21,8 @@ body {
     align-items: flex-end;
 }
 
-.step-float ul,
 .step-float ol {
-    align-self: center;
+    
 }
 
 .step-float>.step-txt {

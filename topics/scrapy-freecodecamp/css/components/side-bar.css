@@ -31,9 +31,7 @@
     pointer-events: auto;
     /* make sure it's above other stuff */
 }
-.side-bar ul {
-    list-style: decimal;
-}
+
 .side-bar ul>li>a {
     text-decoration: none;
 }
@@ -43,10 +41,13 @@
     /* margin-top: 20%; */
 }
 
+ol.side-bar-links {
+    list-style-type: none;
+}
 .side-bar-links {
     margin-top: 20%;
-    padding-left: 4%;
-    margin-left: 15%;
+    padding-left: 0%;
+    margin-left: 5%;
 }
 
 .side-bar-links>li {
@@ -56,6 +57,7 @@
 .side-bar-links>li>ul,
 .side-bar-links>li>ol {
     margin-left: 15%;
+    list-style: num;
 }
 
 .side-bar-links>li>ul>li,
