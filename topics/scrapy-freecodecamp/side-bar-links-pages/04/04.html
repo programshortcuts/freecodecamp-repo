@@ -17,6 +17,16 @@ scrapy shell</code>
                     <code tabindex="0" class="copy-code">
 fetch('https://books.toscrape.com/')</code>
                 </div>
+                <div class="code-container">
+                    <code tabindex="0" class="copy-code">
+response.css('li.next a::attr(href)').get()</code>
+                </div>
+                
+                <div class="code-container">
+                    <code tabindex="0" class="copy-code">
+scrapy crawl bookspider</code>
+                </div>
+                
                 
                 
                 

@@ -6,7 +6,7 @@
     /* allow both directions */
     max-width: 90%;
     /* prevent overflow outside container */
-    max-height: 300px;
+    max-height: 50vh;
     /* or any height you like */
     white-space: pre;   
     /* keep formatting but allow scroll */
