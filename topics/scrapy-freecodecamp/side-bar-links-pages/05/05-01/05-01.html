@@ -1,7 +1,9 @@
 <!-- 05-01.html -->
 <div id="targetDiv">
     <header>
-        <h3 id="">05-01 Get data from next_page url</h3>
+        <h3>05-01 Get data from next_page url
+        <br><code>.xpath</code>
+        <br><code>table &lt;tr></code></h3>
     </header>
     <div class="steps-container">
         <!-- 1. -->
@@ -83,26 +85,59 @@ fetch('https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html
             </div>
         </div>
         <!-- 2. -->
-        <div tabindex="0" class="step-float" data-video="https://www.youtube.com/watch?v=mBoX_JCKZTE" data-timestamp="3800">
+        <div tabindex="0" class="step-float" data-video="https://www.youtube.com/watch?v=mBoX_JCKZTE" data-timestamp="3840">
             <h4>2 <code>xpath</code></h4>
             <div class="step-txt">    
                 <p>
                     <code>xpath</code> allows use more <span class="m">complex css paths</span>,
-                    for example the <i>poetry</i> catagory on top of page in <code class="gr">ul.breadcrumb</code>, we can use this xpath
+                    for example the <i>Poetry</i> catagory on top of page in <code class="gr">ul.breadcrumb</code>, we can use this xpath
                 </p>
                 <div class="code-container">
                     <code tabindex="0" class="copy-code">
-response.xpath("<span class="g">//ul[@class='breadcrumb']/li[@class='active']/</span><span class="m">preceding-sibling</span>::<span class="g">li[1]/a/text()")</span>.get() </code>
+response.xpath("<span class="g">//</span><span class="gr">ul[@class='breadcrumb</span><span class="g">']/li[@class='active']/</span><span class="m">preceding-sibling</span>::<span class="g">li[1]/a/text()")</span>.get() </code>
                 </div>
-                
-                
-                
+                <p>
+                    This targets the active last li elements the gets the <code class="m">preceding-sibling</code> li which is <i>Poetry</i>
+                </p>
+                <p>
+                    If we wanted something with no class or id, we can target and element around it like for 
+                    <code>product_description</code> and get the <code class="m">following-sibling</code> p text
+                </p>
+                <div class="code-container">
+                    <code tabindex="0" class="copy-code">
+response.xpath("//div[@id='product_description']/<span class="m">following-sibling</span>::p/text()").get()</code>
+                </div>
         
             </div>
             <div class="imgs-container">
                 <div class="step-img">
                     <img loading="lazy" src="side-bar-links-pages/05/05-01/images/02.png" alt="">
                 </div>
+                <div class="step-img">
+                    <img loading="lazy" src="side-bar-links-pages/05/05-01/images/02-b.png" alt="">
+                </div>
+                
+            </div>
+        </div>
+        <!-- 3. -->
+        <div tabindex="0" class="step-float" data-video="https://www.youtube.com/watch?v=mBoX_JCKZTE" data-timestamp="4027,">
+            <h4>3 working with table &lt;tr></h4>    
+            <div class="step-img">
+                <img loading="lazy" src="side-bar-links-pages/05/05-01/images/03.png" alt="">
+            </div>
+            <div class="step-txt ">
+                <p>
+                    When working with table rows, but all rows in variable, access each <code>row</code>
+                    by <code>rows[index]</code>
+                </p>
+                <div class="code-container">
+                    <code tabindex="0" class="copy-code">
+table_rows = response.css('table tr')</code>
+                </div>
+                <p>
+                   Then you can access whatever is inside each row 
+                </p>
+                
                 
             </div>
         </div>
