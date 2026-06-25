@@ -24,6 +24,8 @@ export function handleMKey() {
     // step -> mainTargetDiv
     if (activeStep) {
         mainTargetDiv.focus();
+        mainTargetDiv.scrollIntoView({behavior:'smooth',inline:'start'})
+        
         return;
     }
 

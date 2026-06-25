@@ -49,7 +49,6 @@ export function mainContentNav({ e, focusZone }) {
     // M KEY → RETURN TO STEP / MAIN
     // =========================
     if (key === 'm') {
-        console.log('here')
         handleMKey({ e, focusZone });
         return;
     }
