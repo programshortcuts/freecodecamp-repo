@@ -75,9 +75,11 @@ allSideBarLinks.forEach((el, i) => {
         if (key === 'enter') {
             e.preventDefault();
             changeTutorialLink(e);
-            if (lastFocusedSideBarLink == lastClickedSideBarLink){
-                // const step1 = mainTargetDiv.querySelector('.step-float')
-                // step1.focus()
+            if (lastFocusedSideBarLink == lastClickedSideBarLink &&
+                !e.target.classList.contains('drop-down')
+            ){
+                const step1 = mainTargetDiv.querySelector('.step-float')
+                step1.focus()
                 return
             }
             lastClickedSideBarLink = el;
