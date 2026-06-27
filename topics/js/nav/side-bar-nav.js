@@ -94,7 +94,7 @@ allSideBarLinks.forEach((el, i) => {
         if (key === 'm') {
             
             if (e.key.toLowerCase() === 'm') {
-                mainTargetDiv.focus();
+                // mainTargetDiv.focus();
             }
             return
         }

@@ -22,7 +22,7 @@ export function initDropDowns() {
                 dropdown &&
                 (e.key === "Enter" || e.key === " ")
             ) {
-                hideTopicSnips()
+                // hideTopicSnips()
                 e.preventDefault();
                 link = dropdown;
 
@@ -60,6 +60,7 @@ export function hideTopicSnips() {
     document.querySelectorAll(".side-bar-links > li .drop-snips").forEach(el => {
         if (!el.classList.contains("show") ) {
             el.classList.add("hide");
+            el.classList.remove("show")
         }
     });
 }
