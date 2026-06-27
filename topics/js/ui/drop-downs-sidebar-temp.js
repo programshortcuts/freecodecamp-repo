@@ -22,7 +22,7 @@ export function initDropDowns() {
                 dropdown &&
                 (e.key === "Enter" || e.key === " ")
             ) {
-                // hideTopicSnips()
+                hideTopicSnips()
                 e.preventDefault();
                 link = dropdown;
 
