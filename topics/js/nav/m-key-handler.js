@@ -12,6 +12,7 @@ export function handleMKey() {
         mainTargetDiv.focus()
         return
     }
+    
     const activeStep = active?.closest?.('.step-float');
     if(activeStep){
         // CASE 1
@@ -22,7 +23,7 @@ export function handleMKey() {
         }
         // CASE 2
         // step -> mainTargetDiv
-        if (activeStep) {
+        if (activeStep || active.id == 'tutorialLink') {
             mainTargetDiv.focus();
             mainTargetDiv.scrollIntoView({behavior:'smooth',inline:'start'})   
             return;
