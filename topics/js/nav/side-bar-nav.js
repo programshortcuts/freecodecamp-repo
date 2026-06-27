@@ -145,7 +145,6 @@ sideBarBtn.addEventListener('focus', () => {
     // sideBar.scrollIntoView({ behavior: "smooth", block: "start",inline:'start' });
     scrollTo(0,0)
 });
-
 function removeAllHighlights(allSideBarLinks){
     allSideBarLinks.forEach(el => {
         if(el.classList.contains('highlight')){

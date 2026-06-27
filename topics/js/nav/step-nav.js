@@ -255,7 +255,11 @@ document.addEventListener('keydown', (e) => {
         }
 
         currentIndex = (currentIndex + 1) % steps.length;
-        steps[currentIndex]?.focus();
+        steps[currentIndex]?.focus()
+        steps[currentIndex]?.scrollIntoView({
+            behavior: 'smooth',
+            inline  : 'start'
+        })
         return;
     }
 
