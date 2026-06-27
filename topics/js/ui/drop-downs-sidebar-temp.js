@@ -21,12 +21,12 @@ export function initDropDowns() {
             if (dropdown && (e.key === "Enter" || e.key === " ")) {
                 e.preventDefault();
                 console.log(dropdown)
-                // hideTopicSnips()
+                hideTopicSnips()
                 link = dropdown;
 
             } else {
                 // hideTopicSnips()
-                // return;
+                return;
             }
         }
 
