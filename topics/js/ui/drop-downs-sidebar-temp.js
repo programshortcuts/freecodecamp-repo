@@ -24,7 +24,6 @@ export function initDropDowns() {
             ) {
 
                 e.preventDefault();
-
                 link = dropdown;
 
             } else {

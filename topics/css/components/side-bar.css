@@ -12,15 +12,13 @@
     /* overflow: hidden; */
     /* height: calc(100vh - var(--header-height, 80px)); */
 }
-.side-bar a.topic{
+.side-bar > .side-bar-links >a.topic{
     text-decoration: none;    
+    ;
 }
 .side-bar h3{
-    border-bottom: 1px solid blue;
     width: 50%;
-    
 }
-
 #sideBarBtn {
     position: absolute;
     top: 0px;
@@ -45,7 +43,6 @@ ol.side-bar-links {
     list-style-type: none;
 }
 .side-bar-links {
-    margin-top: 20%;
     padding-left: 0%;
     margin-left: 5%;
 }
