@@ -21,7 +21,7 @@ function highlightSidebar() {
     current.classList.add('highlight');
     const drop = current.closest('.drop-snips');
     if (drop?.classList.contains('hide')) {
-        // drop.classList.remove('hide');
+        drop.classList.remove('hide');
     }
 }
 // =========================

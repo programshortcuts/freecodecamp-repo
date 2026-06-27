@@ -61,6 +61,7 @@ export function hideTopicSnips() {
         if (!el.classList.contains("show") ) {
             el.classList.add("hide");
             el.classList.remove("show")
+            console.log(el)
         }
     });
 }
