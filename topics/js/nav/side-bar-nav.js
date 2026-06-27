@@ -13,11 +13,9 @@ import { lastStep } from "./step-nav.js";
 export let allSideBarLinks = [...document.querySelectorAll('.side-bar-links a')];
 export let lastClickedSideBarLink = null;
 export let lastFocusedSideBarLink = null;
-
 let sideBarFocused = false;
 let iSideBarLinks = -1;
 let suppressIndexUpdate = false;
-
 export function updateLastClicked(link) {
     let i = allSideBarLinks.indexOf(link)
     lastClickedSideBarLink = allSideBarLinks[i]
@@ -42,28 +40,22 @@ export function intiSideBarLinkAutoFocus(){
         injectContent('home-page.html');
     }
 }
-
-
 /* =========================
    HELPERS
 ========================= */
 function isVisible(el) {
     return el && el.offsetParent !== null;
 }
-
 function getVisibleLinks() {
     return allSideBarLinks.filter(isVisible);
 }
-
 function isSubLink(el) {
     return !!el.closest('.side-bar-links li ul li a');
 }
-
 function getParentTopLink(subLink) {
     const li = subLink.closest('ul')?.closest('li');
     return li?.querySelector(':scope > a');
 }
-
 /* =========================
    LINK LISTENERS
 ========================= */
@@ -121,14 +113,11 @@ allSideBarLinks.forEach((el, i) => {
     });
     
 });
-
 /* =========================
    SIDEBAR FOCUS TRACKING
 ========================= */
 sideBar.addEventListener('focusin', () => sideBarFocused = true);
 sideBar.addEventListener('focusout', () => sideBarFocused = false);
-
-
 /* =========================
    SIDEBAR BUTTON
 ========================= */
@@ -152,7 +141,6 @@ sideBarBtn.addEventListener('keydown', e => {
 
     }
 });
-
 sideBarBtn.addEventListener('focus', () => {
     // sideBar.scrollIntoView({ behavior: "smooth", block: "start",inline:'start' });
     scrollTo(0,0)
