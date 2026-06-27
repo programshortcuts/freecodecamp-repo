@@ -174,8 +174,9 @@ export function sideBarNav({ e, focusZone }) {
             const ul = activeEl.closest('ul');
             const subs = [...ul.querySelectorAll('li > a')].filter(isVisible);
             subs[index]?.focus();
+            subs[index]?.sideBar.scrollIntoView({ behavior: "smooth", block: "center", inline: 'center' });
         } else {
-            visibleLinks[index]?.focus();
+            visibleLinks[index]?.sideBar.scrollIntoView({ behavior: "smooth", block: "center", inline: 'center' });
         }
         return;
     }
