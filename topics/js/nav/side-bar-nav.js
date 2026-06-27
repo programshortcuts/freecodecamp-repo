@@ -71,6 +71,7 @@ allSideBarLinks.forEach((el, i) => {
     // ENTER
     el.addEventListener('keydown', e => {
         const key = e.key.toLowerCase();
+        
         if (key === 'enter') {
             e.preventDefault();
             changeTutorialLink(e);
@@ -164,6 +165,7 @@ export function sideBarNav({ e, focusZone }) {
             subs[index]?.focus();
             subs[index]?.scrollIntoView({ behavior: "smooth", block: "center", inline: 'center' });
         } else {
+            visibleLinks[index]?.focus()
             visibleLinks[index]?.scrollIntoView({ behavior: "smooth", block: "center", inline: 'center' });
         }
         return;
