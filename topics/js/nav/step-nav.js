@@ -2,24 +2,18 @@
 /* =========================
    STEP NAVIGATION (CLEAN)
 ========================= */
-
 import { pauseAllVideos } from "../ui/video-controls.js";
 import { cycleMedia, denlargeAllImages } from "../ui/toggle-img-sizes.js";
-
 import { changeTutorialLink } from "../ui/change-tutorial-link.js";
 import { lastClickedSideBarLink } from "./side-bar-nav.js";
 import { mainTargetDiv } from "./main-content-nav.js";
 // import { mainTargetDiv } from "./main-content-nav.js";
-
 let steps = [];
 let currentIndex = 0;
-
 export let lastStep = null;
-
 /* =========================
    INIT
 ========================= */
-
 export function initStepNavigation({ mainTargetDiv }) {
     if (!mainTargetDiv) return;
 
@@ -56,11 +50,9 @@ export function initStepNavigation({ mainTargetDiv }) {
 
     syncStep();
 }
-
 /* =========================
    KEY HANDLER (STEP ONLY)
 ========================= */
-
 function handleStepKey(e, step, index) {
     const key = e.key.toLowerCase();
     const active = document.activeElement;
@@ -118,43 +110,11 @@ function handleStepKey(e, step, index) {
     /* =========================
    M KEY
 ========================= */
-    if (key === 'm') {
-        
-        // e.preventDefault();
-
-        // const currentStep = e.target.closest('.step-float');
-        // if (!currentStep) return;
-
-        // currentStep.blur();
-
-        // requestAnimationFrame(() => {
-        //     if (!mainTargetDiv) return;
-
-        //     // 1. focus it (optional but fine)
-        //     mainTargetDiv.setAttribute('tabindex', '-1');
-        //     mainTargetDiv.focus?.();
-
-        //     // 2. scroll it to top (THIS is the missing piece)
-        //     mainTargetDiv.scrollIntoView({
-        //         behavior: 'smooth',
-        //         block: 'start'
-        //     });
-
-        //     // fallback hard reset (important if container scroll is weird)
-        //     setTimeout(() => {
-        //         mainTargetDiv.scrollTop = 0;
-        //         window.scrollTo({ top: 0, behavior: 'smooth' });
-        //     }, 0);
-        // });
-
-        // return;
-    }
+    
 }
-
 /* =========================
    GLOBAL NAV (F / A / NUMBERS)
 ========================= */
-
 document.addEventListener('keydown', (e) => {
     const key = e.key.toLowerCase();
     const active = document.activeElement;
@@ -250,7 +210,11 @@ document.addEventListener('keydown', (e) => {
 
         if (isMainTargetFocused) {
             currentIndex = 0;
-            steps[currentIndex]?.focus();
+            steps[currentIndex]?.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+                inline: 'nearest'
+            })
             return;
         }
 
@@ -258,7 +222,8 @@ document.addEventListener('keydown', (e) => {
         steps[currentIndex]?.focus()
         steps[currentIndex]?.scrollIntoView({
             behavior: 'smooth',
-            inline  : 'start'
+            block  : 'start',
+            inline : 'nearest'
         })
         return;
     }
@@ -295,7 +260,6 @@ document.addEventListener('keydown', (e) => {
 /* =========================
    SYNC
 ========================= */
-
 function syncStep() {
     const active = document.activeElement;
     const step = active?.closest?.('.step-float');
@@ -308,11 +272,7 @@ function syncStep() {
     const idx = steps.indexOf(step);
     if (idx !== -1) currentIndex = idx;
 }
-
 /* =========================
    EXPOSE
 ========================= */
-
-export function getLastStep() {
-    return lastStep;
-}
+export function getLastStep() {return lastStep;}
