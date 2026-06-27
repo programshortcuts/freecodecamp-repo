@@ -174,18 +174,14 @@ export function sideBarNav({ e, focusZone }) {
             const ul = activeEl.closest('ul');
             const subs = [...ul.querySelectorAll('li > a')].filter(isVisible);
             subs[index]?.focus();
-            subs[index]?.sideBar.scrollIntoView({ behavior: "smooth", block: "center", inline: 'center' });
+            subs[index]?.scrollIntoView({ behavior: "smooth", block: "center", inline: 'center' });
         } else {
-            visibleLinks[index]?.sideBar.scrollIntoView({ behavior: "smooth", block: "center", inline: 'center' });
+            visibleLinks[index]?.scrollIntoView({ behavior: "smooth", block: "center", inline: 'center' });
         }
         return;
     }
 
-    /* ---- M KEY ---- */
-    if (key === 'm') {
-        // handleMKey({ e, focusZone, mainTargetDiv });
-        return;
-    }
+    
 
     /* ---- FORWARD / BACK ---- */
     if (key === 'f' || key === 'a') {
