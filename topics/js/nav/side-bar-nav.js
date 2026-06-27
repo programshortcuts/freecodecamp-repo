@@ -80,9 +80,9 @@ allSideBarLinks.forEach((el, i) => {
             
             if (lastFocusedSideBarLink == lastClickedSideBarLink){
 
-                const step1 = mainTargetDiv.querySelector('.step-float')
+                // const step1 = mainTargetDiv.querySelector('.step-float')
 
-                step1.focus()
+                // step1.focus()
                 return
 
             }

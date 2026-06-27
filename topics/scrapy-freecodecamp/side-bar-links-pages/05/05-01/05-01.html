@@ -17,7 +17,7 @@
                 <p>
                     To do this, do what we did for <code>next_page</code> for each book link in
                     <code class="m">relative_url</code>, and pass response into a function called 
-                    <code class="o">parse_book_page</code>
+                    <code class="o">parse_book_page</code> (we make in nxt less 5-2)
 
                 </p>
                 <div class="code-container">
@@ -36,7 +36,7 @@ class BookspiderSpider(scrapy.Spider):
                 book_url = 'https://books.toscrape.com/' + relative_url
             else:
                 book_url = 'https://bosk.toscrape.com/catalogue/' + relative_url
-            yield response.follow(book_url,callback=parse_book_page)    
+            yield response.follow(book_url,callback=<span class="o">parse_book_page</span>)    
             # yield{
             #     'name': book.css('h3 a::text').get(),
             #     'price': book.css('.product_price .price_color::text').get(),
