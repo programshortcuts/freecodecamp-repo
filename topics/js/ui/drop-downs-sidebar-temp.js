@@ -22,11 +22,12 @@ export function initDropDowns() {
                 dropdown &&
                 (e.key === "Enter" || e.key === " ")
             ) {
-
+                hideTopicSnips()
                 e.preventDefault();
                 link = dropdown;
 
             } else {
+                hideTopicSnips()
                 return;
             }
         }
