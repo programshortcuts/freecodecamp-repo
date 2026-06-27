@@ -19,13 +19,14 @@ export function initDropDowns() {
                     : null;
 
             if (dropdown && (e.key === "Enter" || e.key === " ")) {
-                hideTopicSnips()
                 e.preventDefault();
+                console.log(dropdown)
+                // hideTopicSnips()
                 link = dropdown;
 
             } else {
                 // hideTopicSnips()
-                return;
+                // return;
             }
         }
 
