@@ -32,10 +32,14 @@ export function initDropDowns() {
         // --- Handle mouse click activation ---
         if (e.type === "click") {
             const clicked = e.target.closest(".drop-down");
+            e.preventDefault()
+            hideTopicSnips()
             if (!clicked) return; // ignore clicks not on .drop-down links
             e.preventDefault();
-            hideTopicSnips()
+            
             link = clicked;
+        }else {
+
         }
 
         if (!link) return;
