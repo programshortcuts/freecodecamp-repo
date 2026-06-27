@@ -27,7 +27,7 @@ export function initDropDowns() {
                 link = dropdown;
 
             } else {
-                hideTopicSnips()
+                // hideTopicSnips()
                 return;
             }
         }
@@ -37,6 +37,7 @@ export function initDropDowns() {
             const clicked = e.target.closest(".drop-down");
             if (!clicked) return; // ignore clicks not on .drop-down links
             e.preventDefault();
+            hideTopicSnips()
             link = clicked;
         }
 
