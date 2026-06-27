@@ -22,7 +22,7 @@ export function initDropDowns() {
                 dropdown &&
                 (e.key === "Enter" || e.key === " ")
             ) {
-                hideTopicSnips()
+                // hideTopicSnips()
                 e.preventDefault();
                 link = dropdown;
 
@@ -37,7 +37,7 @@ export function initDropDowns() {
             const clicked = e.target.closest(".drop-down");
             if (!clicked) return; // ignore clicks not on .drop-down links
             e.preventDefault();
-            hideTopicSnips()
+            // hideTopicSnips()
             link = clicked;
         }
 

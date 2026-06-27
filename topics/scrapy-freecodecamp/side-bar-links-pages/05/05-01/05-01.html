@@ -131,12 +131,14 @@ response.xpath("//div[@id='product_description']/<span class="m">following-sibli
                 </p>
                 <div class="code-container">
                     <code tabindex="0" class="copy-code">
-table_rows = response.css('table tr')</code>
+table_rows = response.css('table tr').get()</code>
                 </div>
                 <p>
-                   Then you can access whatever is inside each row 
+                   Then you can access whatever is inside each row by <span class="b">index</span>
                 </p>
-                
+                <div class="code-container">
+table_rows[<span class="b">0</span>].css('td::text').get()</textarea>
+                </div>
                 
             </div>
         </div>
