@@ -4,10 +4,48 @@
         <h3 id="">04 Scrapy Most used commands</h3>
     </header>
     <div class="steps-container">
+        <!-- 04-06 -->
+        <div tabindex="0" class="step-float" data-video="https://www.youtube.com/watch?v=mBoX_JCKZTE" data-timestamp="2520">
+            <h4>1</h4>
+            <div class="step-txt ">
+                <p>
+                    Base use of <code>parse</code> in <code>Spider</code>
+                </p>
+                <div class="code-container">
+                    <pre tabindex="0" class="copy-code">
+import scrapy
+
+
+class BookspiderSpider(scrapy.Spider):
+    name = "bookspider"
+    allowed_domains = ["books.toscrape.com"]
+    start_urls = ["https://books.toscrape.com"]
+
+    def <span class="o">parse(</span>self, response<span class="o">)</span>:
+        books = response.css('article.product_pod')
+        for book in books:
+            <span class="m">yield</span>{
+                'name': book.css('h3 a::text').get(),
+                'price': book.css('.product_price .price_color::text').get(),
+                'url': book.css('h3 a').attrib['href']
+            }       </pre>
+                </div>
+       
+            </div>
+            <div class="step-vid ">
+                <video preload="none" playsinline webkit-playsinline poster="side-bar-links-pages/04/04-05/images/01.png"
+                    src="side-bar-links-pages/04/04-05/images/01.mov"></video>
+                <div class="vid-cntrl-btns">
+                    <button class="fwdBtn">&lt;&lt;</button>
+                    <button class="playbtn">></button>
+                    <button class="rwdBtn">>></button>
+                </div>
+            </div>
+        </div>
         <!-- 1 -->
         <div tabindex="0" class="step-float" data-video="https://www.youtube.com/watch?v=mBoX_JCKZTE" 
             data-timestamp="1755">
-            <h4>1</h4>
+            <h4>2</h4>
             <div class="step-img">
                 <img loading="lazy" src="side-bar-links-pages/04/images/01.png" alt="">
             </div>,
@@ -15,7 +53,7 @@
                 <p>
                     Be sure, change in spider directory, <code>/bookscraper/bookscraper/spider</code>
                 </p>
-                <p>run this</p>
+                <p>run this, the last argument is the domain url</p>
                 <div class="code-container">
                     <code tabindex="0" class="copy-code">
                     scrapy genspider bookspider books.toscrape.com
@@ -29,6 +67,10 @@
             data-timestamp="1755">
             <h4>1</h4>
             <div  class="step-txt ">
+                <p>
+                    Find html data to get in scrapy shell, then add to <code class="o">parse()</code>
+                    <code class="m">yeild</code>
+                </p>
                 <div class="code-container">
                     <code tabindex="0" class="copy-code">
 scrapy shell</code>
@@ -59,6 +101,7 @@ scrapy crawl bookspider</code>
             
             
         </div>
+        
         
         
 
