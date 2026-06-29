@@ -21,6 +21,9 @@ export function initStepNavigation({ mainTargetDiv }) {
     currentIndex = 0;
 
     steps.forEach((step, index) => {
+        if(step.hasAttribute('data-auto-focus')){
+            step.focus()
+        }
         step.setAttribute('tabindex', '0');
 
         step.addEventListener('focus', () => {

@@ -48,6 +48,12 @@ class BookspiderSpider(scrapy.Spider):
         if next_page is not None:
             next_page_url = 'https://books.toscrape.com/' + <span class="lb">next_page</span>
             yield response.<span class="m">follow</span>(next_page_url,callback=self.parse)
+        if next_page is not None:
+        if 'catalogue/' in next_page:
+        next_page_url = 'https://books.toscrape.com/' + next_page
+        else:
+        next_page_url = 'https://books.toscrape.com/catalogue/' + next_page
+        yield response.follow(next_page_url,callback=self.parse)
 </pre>
                 </div>
                 
@@ -109,6 +115,47 @@ scrapy crawl bookspider</code>
             </div>
         </div>
         <!-- 3. -->
+        <div tabindex="0" class="step-float" data-video="https://www.youtube.com/watch?v=mBoX_JCKZTE" 
+        data-timestamp="3177">
+            <h4>3</h4>
+            <div class="step-txt ">
+                <p>
+                    fix url <code class="m">follow()</code> with condition of with or without 
+                    <code class="o">catalogue</code>
+                </p>
+                <div class="code-container">
+                    <pre tabindex="0" class="copy-code">
+import scrapy
+class BookspiderSpider(scrapy.Spider):
+    name = "bookspider"
+    allowed_domains = ["books.toscrape.com"]
+    start_urls = ["https://books.toscrape.com"]
+
+    def parse(self, response):
+        books = response.css('article.product_pod')
+        for book in books:
+            yield{
+                'name': book.css('h3 a::text').get(),
+                'price': book.css('.product_price .price_color::text').get(),
+                'url': book.css('h3 a').attrib['href']
+            }
+        next_page = response.css('li.next a::attr(href)').get()<span class="rb">
+        if next_page is not None:
+            if 'catalogue/' in next_page:
+                next_page_url = 'https://books.toscrape.com/' + next_page
+            else:
+                next_page_url = 'https://books.toscrape.com/</span><span class="o">catalogue/</span><span class="rb">' + next_page
+            yield response.<span class="m">follow</span>(next_page_url,callback=self.parse)</span></pre>
+                </div>
+                <p>
+                    The <code>item_scraped_count</code> shows 1000 now
+                </p>                
+        
+            </div>
+            <div class="step-img">
+                <img loading="lazy" src="side-bar-links-pages/04/04-07/images/03.png" alt="">
+            </div>
+        </div>
         <div tabindex="0" class="step-float" data-video="https://www.youtube.com/watch?v=mBoX_JCKZTE" 
         data-timestamp="3177">
             <h4>3</h4>
